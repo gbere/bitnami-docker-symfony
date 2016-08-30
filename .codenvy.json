@@ -1,0 +1,82 @@
+{
+  "v": "4.0",
+  "workspace": {
+    "name": "symfony",
+    "defaultEnv": "symfony",
+    "environments": [
+      {
+        "name": "symfony",
+        "recipe": null,
+        "machineConfigs": [
+          {
+            "name": "ws-machine",
+            "limits": {
+              "ram": 1024
+            },
+            "source": {
+              "type": "dockerfile",
+              "location": "https://raw.githubusercontent.com/dgonzalezruiz/bitnami-docker-symfony/che/.codenvy.dockerfile"
+            },
+            "type": "docker",
+            "dev": true
+          }
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "symfony-sample",
+        "type": "blank",
+        "path": "/symfony-sample",
+        "source": {
+          "type": "git",
+          "location": "https://github.com/dgonzalezruiz/bitnami-docker-symfony",
+          "parameters": {
+            "branch": "che",
+            "keepVcs": "true"
+          }
+        },
+        "mixins": [
+          "git",
+          "pullrequest"
+        ],
+        "attributes": {
+          "local_branch": [ "contrib" ],
+          "contribute_to_branch" : [ "master" ]
+        },
+        "modules": [],
+        "problems": []
+      }
+    ],
+    "commands": [
+      {
+        "name": "run",
+        "type": "custom",
+        "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && cd ${current.project.path}/app_template && php -S 0.0.0.0:8000 -t $PWD/web",
+        "attributes": {
+           "previewUrl": "http://${server.port.8000}/"
+        }
+      },
+      {
+        "name": "create project - run first",
+        "type": "custom",
+        "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && if [ -d ${current.project.path} ] ; then cd ${current.project.path} ; fi && symfony new app_template && ln -fs $PWD/app_template/web/app.php $PWD/app_template/web/index.php &&  php -S 0.0.0.0:8000 -t $PWD/app_template/web",
+        "attributes": {
+           "previewUrl": "http://${server.port.8000}/"
+        }
+      }
+    ]
+  },
+  "ide": {
+    "onProjectsLoaded": {
+      "actions": [
+        {
+          "properties": {
+            "name": "create project - run first"
+          },
+          "id": "runCommand"
+        }
+      ]
+    }
+  }
+}
