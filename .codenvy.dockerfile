@@ -2,13 +2,7 @@ FROM gcr.io/stacksmith-images/ubuntu-buildpack:14.04-r8
 
 MAINTAINER Bitnami <containers@bitnami.com>
 
-# Install extra packages
-RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
-    apt-get clean && \
-    apt-get -y autoremove && \
-    rm -rf /var/lib/apt/lists/*
-
-# Symfony module
+# Install java dependency
 RUN bitnami-pkg install java-1.8.0_91-0 --checksum 64cf20b77dc7cce3a28e9fe1daa149785c9c8c13ad1249071bc778fa40ae8773
 ENV PATH=/opt/bitnami/java/bin:$PATH
 
