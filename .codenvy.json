@@ -15,7 +15,7 @@
             },
             "source": {
               "type": "dockerfile",
-              "location": "https://raw.githubusercontent.com/dgonzalezruiz/bitnami-docker-symfony/che/.codenvy.dockerfile"
+              "location": "https://raw.githubusercontent.com/bitnami/bitnami-docker-symfony/che/.codenvy.dockerfile"
             },
             "type": "docker",
             "dev": true
@@ -30,7 +30,7 @@
         "path": "/symfony-sample",
         "source": {
           "type": "git",
-          "location": "https://github.com/dgonzalezruiz/bitnami-docker-symfony",
+          "location": "https://github.com/bitnami/bitnami-docker-symfony",
           "parameters": {
             "branch": "che",
             "keepVcs": "true"

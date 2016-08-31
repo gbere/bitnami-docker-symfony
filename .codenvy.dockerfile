@@ -15,7 +15,7 @@ RUN bitnami-pkg install mysql-client-10.1.13-4 --checksum 14b45c91dd78b37f0f2366
 RUN bitnami-pkg install mariadb-10.1.14-4 --checksum 4a75f4f52587853d69860662626c64a4540126962cd9ee9722af58a3e7cfa01b
 
 # Install symfony module
-RUN bitnami-pkg install symfony-2.8.9-0 --checksum fb3b9e203f4abcd435bbbe79b41fe1f394b06f3036cde1315b61caed231bc9e0 --applicationDirectory /projects
+RUN bitnami-pkg install symfony-2.8.9-0 --checksum 8506a61e56aaa9a6d9772f1aaa4f1edf8f777abd423e2d4b2b41d469c1f6dc38 --applicationDirectory /projects
 
 EXPOSE 8000
 
