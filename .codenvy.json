@@ -52,7 +52,7 @@
       {
         "name": "run",
         "type": "custom",
-        "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && cd ${current.project.path}/app_template && php -S 0.0.0.0:8000 -t $PWD/web",
+        "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && php -S 0.0.0.0:8000 -t ${current.project.path}/app_template/web",
         "attributes": {
            "previewUrl": "http://${server.port.8000}/"
         }
@@ -60,7 +60,7 @@
       {
         "name": "create project - run first",
         "type": "custom",
-        "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && if [ -d ${current.project.path} ] ; then cd ${current.project.path} ; fi && symfony new app_template && ln -fs $PWD/app_template/web/app.php $PWD/app_template/web/index.php &&  php -S 0.0.0.0:8000 -t $PWD/app_template/web",
+        "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && symfony new app_template && ln -fs ${current.project.path}/app_template/web/app.php ${current.project.path}/app_template/web/index.php &&  php -S 0.0.0.0:8000 -t ${current.project.path}/app_template/web",
         "attributes": {
            "previewUrl": "http://${server.port.8000}/"
         }
