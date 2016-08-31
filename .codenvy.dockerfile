@@ -19,8 +19,6 @@ RUN bitnami-pkg install symfony-2.8.9-0 --checksum 10de26781562de9ac73c010fce5f3
 
 EXPOSE 8000
 
-USER bitnami
-
 WORKDIR /projects
 
 # Interact with Eclipse che
