@@ -28,4 +28,4 @@ LABEL che:server:8000:ref=symfony che:server:8000:protocol=http
 
 ENV TERM=xterm
 
-CMD ["tail", "-f", "/dev/null"]
+CMD ["harpoon", "start", "--foreground", "mariadb"]
