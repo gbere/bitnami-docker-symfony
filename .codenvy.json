@@ -25,9 +25,9 @@
     ],
     "projects": [
       {
-        "name": "symfony-sample",
+        "name": "symfony_sample",
         "type": "blank",
-        "path": "/symfony-sample",
+        "path": "/symfony_sample",
         "source": {
           "type": "git",
           "location": "https://github.com/bitnami/bitnami-docker-symfony",
@@ -52,7 +52,7 @@
       {
         "name": "run",
         "type": "custom",
-        "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && php -S 0.0.0.0:8000 -t ${current.project.path}/app_template/web",
+        "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && php -S 0.0.0.0:8000 -t ${current.project.path}/web",
         "attributes": {
            "previewUrl": "http://${server.port.8000}/"
         }
@@ -60,7 +60,7 @@
       {
         "name": "create project - run first",
         "type": "custom",
-        "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && harpoon execute symfony createProject app_template && ln -fs ${current.project.path}/app_template/web/app.php ${current.project.path}/app_template/web/index.php &&  php -S 0.0.0.0:8000 -t ${current.project.path}/app_template/web",
+        "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && harpoon execute symfony createProject --force symfony_sample && ln -fs ${current.project.path}/web/app.php ${current.project.path}/web/index.php && php -S 0.0.0.0:8000 -t ${current.project.path}/web",
         "attributes": {
            "previewUrl": "http://${server.port.8000}/"
         }
