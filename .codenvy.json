@@ -30,9 +30,9 @@
         "path": "/symfony_sample",
         "source": {
           "type": "git",
-          "location": "https://github.com/bitnami/bitnami-docker-symfony",
+          "location": "https://github.com/bitnami/bitnami-docker-che-blank-sample",
           "parameters": {
-            "branch": "che",
+            "branch": "master",
             "keepVcs": "true"
           }
         },
