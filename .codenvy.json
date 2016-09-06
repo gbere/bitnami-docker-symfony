@@ -33,7 +33,7 @@
           "location": "https://github.com/bitnami/bitnami-docker-che-blank-sample",
           "parameters": {
             "branch": "master",
-            "keepVcs": "true"
+            "keepVcs": "false"
           }
         },
         "mixins": [
