@@ -15,7 +15,7 @@
             },
             "source": {
               "type": "image",
-              "location": "bitnami/symfony:che"
+              "location": "bitnami/che-symfony:development"
             },
             "type": "docker",
             "dev": true
