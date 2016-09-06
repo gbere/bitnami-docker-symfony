@@ -4,7 +4,8 @@ MAINTAINER Bitnami <containers@bitnami.com>
 
 ENV BITNAMI_APP_NAME=symfony \
     BITNAMI_APP_VERSION=3.1.3 \
-    PATH=/opt/bitnami/java/bin:/opt/bitnami/symfony:/opt/bitnami/php/bin:/opt/bitnami/mysql/bin/:$PATH
+    PATH=/opt/bitnami/java/bin:/opt/bitnami/symfony:/opt/bitnami/php/bin:/opt/bitnami/mysql/bin/:$PATH \
+    TERM=xterm
 
 # Install java dependency
 RUN bitnami-pkg install java-1.8.0_91-0 --checksum 64cf20b77dc7cce3a28e9fe1daa149785c9c8c13ad1249071bc778fa40ae8773
@@ -24,6 +25,6 @@ WORKDIR /projects
 # Interact with Eclipse che
 LABEL che:server:8000:ref=symfony che:server:8000:protocol=http
 
-ENV TERM=xterm
+USER bitnami
 
-CMD ["harpoon", "start", "--foreground", "mariadb"]
+CMD ["sudo", "HOME=/root", "/opt/bitnami/nami/bin/nami", "start", "--foreground", "mariadb"]
