@@ -20,11 +20,10 @@ RUN bitnami-pkg install symfony-3.1.3-0 --checksum 93cdf97999dc72fcfac444e8ab127
 
 EXPOSE 8000
 
-WORKDIR /projects
-
 # Interact with Eclipse che
 LABEL che:server:8000:ref=symfony che:server:8000:protocol=http
 
 USER bitnami
+WORKDIR /projects
 
 CMD ["sudo", "HOME=/root", "/opt/bitnami/nami/bin/nami", "start", "--foreground", "mariadb"]
