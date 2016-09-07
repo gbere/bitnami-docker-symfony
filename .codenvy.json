@@ -15,7 +15,7 @@
             },
             "source": {
               "type": "image",
-              "location": "bitnami/che-symfony:development"
+              "location": "bitnami/che-symfony:che-4.14.0-r1"
             },
             "type": "docker",
             "dev": true
@@ -32,12 +32,10 @@
           "type": "git",
           "location": "https://github.com/bitnami/bitnami-docker-che-blank-sample",
           "parameters": {
-            "branch": "master",
             "keepVcs": "false"
           }
         },
         "mixins": [
-          "git",
           "pullrequest"
         ],
         "attributes": {
@@ -50,7 +48,7 @@
     ],
     "commands": [
       {
-        "name": "run",
+        "name": "2. Run",
         "type": "custom",
         "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && php -S 0.0.0.0:8000 -t ${current.project.path}/web",
         "attributes": {
@@ -58,7 +56,7 @@
         }
       },
       {
-        "name": "create project - run first",
+        "name": "1. Create project",
         "type": "custom",
         "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && sudo HOME=/root nami execute symfony createProject --force symfony_sample | grep -v undefined && ln -fs ${current.project.path}/web/app.php ${current.project.path}/web/index.php && php -S 0.0.0.0:8000 -t ${current.project.path}/web",
         "attributes": {
@@ -72,7 +70,7 @@
       "actions": [
         {
           "properties": {
-            "name": "create project - run first"
+            "name": "1. Create project"
           },
           "id": "runCommand"
         }
