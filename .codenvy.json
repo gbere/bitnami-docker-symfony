@@ -22,7 +22,7 @@
         }
       }
     },
-    "name": "bitnami-symfony",
+    "name": "symfony",
     "defaultEnv": "default",
     "projects": [
       {
